@@ -21,7 +21,7 @@ OPTI_FLAGS = -O3
 SRC_RAW = complex.c complex_base_op.c complex_real_op.c get_intersection.c \
 		  get_intersection_line_plane.c segments_intersect.c new_plane.c \
 		  matrix_utils.c vector_utils.c matrix_tranformations.c angle_utils.c \
-		  vector_init.c geometry_utils.c ft_avg.c ft_var.c ft_dev.c
+		  vector_init.c geometry_utils.c ft_avg.c ft_var.c ft_dev.c ft_sqrt.c
 
 HEADERS = libmft.h
 

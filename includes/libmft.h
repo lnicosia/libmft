@@ -13,6 +13,8 @@
 #ifndef LIBMFT_H
 # define LIBMFT_H
 
+#include <stddef.h>
+
 typedef struct		s_point
 {
 	int				x;
@@ -65,6 +67,13 @@ typedef struct		s_complex
 	double			r;
 	double			i;
 }					t_complex;
+
+/*
+**	-- Utils --
+*/
+
+double				ft_sqrt(double value);
+float				ft_fsqrt(float value);
 
 /*
 **	-- Vector/Matrix utils --

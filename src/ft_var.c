@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "libmft.h"
 
 double	ft_var(int *values, size_t arraylen)
 {
