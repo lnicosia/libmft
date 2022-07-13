@@ -74,6 +74,8 @@ typedef struct		s_complex
 
 double				ft_sqrt(double value);
 float				ft_fsqrt(float value);
+double				ft_pow(double nb, int pow);
+double				ft_fpow(double nb, int pow);
 
 /*
 **	-- Vector/Matrix utils --
