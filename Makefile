@@ -24,6 +24,8 @@ SRC_RAW = complex.c complex_base_op.c complex_real_op.c get_intersection.c \
 		  vector_init.c geometry_utils.c ft_avg.c ft_var.c ft_dev.c ft_sqrt.c \
 		  ft_pow.c
 
+SRC_SIZE = $(shell ls src | wc -l)
+
 HEADERS = libmft.h
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_RAW))
@@ -56,9 +58,11 @@ all: $(BIN_DIR)/$(NAME)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
+I = 1
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDES)
-	@printf $(YELLOW)"\e[0;33mCompiling $<\n"$(RESET)
-	@gcc -c $< -o $@ $(CFLAGS) 
+	@printf $(YELLOW)"[$(I)/$(SRC_SIZE)] Compiling $<\n"$(RESET)
+	$(eval I=$(shell echo $$(($(I) + 1))))
+	gcc -c $< -o $@ $(CFLAGS) 
 
 $(BIN_DIR)/$(NAME): $(OBJ_DIR) $(OBJ)
 	@printf "\e[0;36m[INFO] Linking ${NAME}\e[0m\n"
@@ -67,11 +71,11 @@ $(BIN_DIR)/$(NAME): $(OBJ_DIR) $(OBJ)
 	@printf ${GREEN}"[INFO] Linked $(NAME) with success\n"${RESET}
 
 clean: 
-	@printf ${CYAN}"[INFO] Removing objs from the libft\n"${RESET}
+	@printf ${CYAN}"[INFO] Removing objs from the libmft\n"${RESET}
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@printf ${CYAN}"[INFO] Removing $(NAME) from the libft\n"${RESET}
+	@printf ${CYAN}"[INFO] Removing $(NAME) from the libmft\n"${RESET}
 	rm -rf $(NAME)
 
 re: fclean all
