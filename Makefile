@@ -66,7 +66,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDES)
 
 $(BIN_DIR)/$(NAME): $(OBJ_DIR) $(OBJ)
 	@printf "\e[0;36m[INFO] Linking ${NAME}\e[0m\n"
-	@ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@printf ${GREEN}"[INFO] Linked $(NAME) with success\n"${RESET}
 
